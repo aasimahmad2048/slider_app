@@ -1,0 +1,45 @@
+import 'package:animated_splash_screen/animated_splash_screen.dart';
+import 'package:flutter/material.dart';
+
+void main() {
+  runApp(MyApp());
+}
+
+class MyApp extends StatelessWidget {
+  const MyApp({super.key});
+
+  @override
+  Widget build(BuildContext context) {
+    return (MaterialApp(
+      home: AnimatedSplashScreen(
+        splash: Icons.home,
+        duration: 3000,
+        splashTransition: SplashTransition.fadeTransition,
+        nextScreen: MyHomePage(),
+        backgroundColor: Colors.red,
+      ),
+    ));
+  }
+}
+
+class MyHomePage extends StatefulWidget {
+  const MyHomePage({super.key});
+
+  @override
+  // _MyHomePageState createState() => _MyHomePageState();
+  State<MyHomePage> createState() => _MyHomePageState();
+}
+
+class _MyHomePageState extends State<MyHomePage> {
+  @override
+  void initState() {
+    super.initState();
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      body: Text("Welcome to HomeScreen", style: TextStyle(fontSize: 50)),
+    );
+  }
+}
