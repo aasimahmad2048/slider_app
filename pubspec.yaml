@@ -42,6 +42,7 @@ dependencies:
   json_annotation: ^4.9.0
   json_serializable: ^6.9.5
   skeleton_text: ^3.0.1
+  math_expressions: ^2.0.0
 
 
 
