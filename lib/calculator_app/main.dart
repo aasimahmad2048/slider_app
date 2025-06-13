@@ -57,7 +57,20 @@ class _HomePageState extends State<HomePage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(title: Text("Calculator")), //AppBar
+      appBar: AppBar(
+        title: Text("Calculator"),
+        actions: <Widget>[
+          InkWell(
+            child: Icon(applyTextScaling: true, Icons.history, size: 50),
+            onTap: () {
+              Navigator.push(
+                context,
+                MaterialPageRoute(builder: (context) => Records()),
+              );
+            },
+          ),
+        ],
+      ), //AppBar
       backgroundColor: Colors.white38,
       body: Column(
         children: <Widget>[
@@ -195,12 +208,41 @@ class _HomePageState extends State<HomePage> {
   // function to calculate the input operation
   void equalPressed() {
     String finaluserinput = userInput;
-    finaluserinput = userInput.replaceAll('x', '*');
+
+    finaluserinput = finaluserinput.replaceAll('x', '*');
 
     GrammarParser p = GrammarParser();
     Expression exp = p.parse(finaluserinput);
     ContextModel cm = ContextModel();
     double eval = exp.evaluate(EvaluationType.REAL, cm);
     answer = eval.toString();
+  }
+}
+
+class Records extends StatefulWidget {
+  const Records({super.key});
+
+  @override
+  State<Records> createState() => _RecordsState();
+}
+
+class _RecordsState extends State<Records> {
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      body: Center(
+        child: Column(
+          mainAxisSize: MainAxisSize.min,
+          children: [
+            ElevatedButton(
+              onPressed: () {
+                Navigator.pop(context);
+              },
+              child: Text("back"),
+            ),
+          ],
+        ),
+      ),
+    );
   }
 }

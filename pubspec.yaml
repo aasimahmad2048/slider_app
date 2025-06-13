@@ -43,6 +43,8 @@ dependencies:
   json_serializable: ^6.9.5
   skeleton_text: ^3.0.1
   math_expressions: ^2.0.0
+  shared_preferences: ^2.5.3
+
 
 
 

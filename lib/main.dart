@@ -29,19 +29,6 @@ class _MyHomePageState extends State<MyHomePage> {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-
-    body:  Column(
-
-
-
-
-)
-
-
-
-
-
-    );
+    return Scaffold(body: Column(children: [Text("data")]));
   }
 }
