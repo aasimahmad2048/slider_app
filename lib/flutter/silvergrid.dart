@@ -33,14 +33,6 @@ class MyApp extends StatelessWidget {
               actionsIconTheme: IconThemeData(color: Colors.red),
             ),
 
-            // SliverGrid(
-            //   delegate: SliverChildBuilderDelegate((context, int index) {
-            //     return Container(height: 100, color: getColor(index));
-            //   }),
-            //   gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
-            //     crossAxisCount: 4,
-            //   ),
-            // ),
             SliverGrid.count(
               crossAxisCount: 4,
               crossAxisSpacing: 3,
@@ -62,6 +54,17 @@ class MyApp extends StatelessWidget {
                 Container(height: 100, color: getColor(4)),
               ],
             ),
+
+
+            SliverGrid(
+              delegate: SliverChildBuilderDelegate((context, int index) {
+                return Container(height: 100, color: getColor(index));
+              }),
+              gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
+                crossAxisCount: 4,
+              ),
+            ),
+           
           ],
         ),
       ),

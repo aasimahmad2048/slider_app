@@ -25,11 +25,19 @@ class User {
     );
   }
 
+  //   factory User.fromJson(Map<String, dynamic> json) {
+  //     return switch (json) {
+  //       {'age': int age, 'name': String name, "isStudent": bool isStudent} =>
+  //         User(age: age, name: name, isStudent: isStudent),
+  //       _ => throw const FormatException('Failed to load album.'),
+  //     };
+  //   }
+
   factory User.fromJson(Map<String, dynamic> json) {
-    return User(
-      age: json['age'],
-      name: json['name'],
-      isStudent: json['isStudent'],
-    );
+    return switch (json) {
+      {'age': int age, 'name': String name, "isStudent": bool isStudent} =>
+        User(age: age, name: name, isStudent: isStudent),
+      _ => throw const FormatException("failed to load"),
+    };
   }
 }

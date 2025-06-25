@@ -1,5 +1,6 @@
-import 'package:sqflite/sqflite.dart';
 import 'package:path/path.dart';
+import 'package:sqflite/sqflite.dart';
+
 import 'book.dart';
 
 class DBHelper {
@@ -13,7 +14,7 @@ class DBHelper {
     }
   }
 
-  //create table api
+  //create  db connection and table api
   Future<Database> _initDB() async {
     final path = join(await getDatabasesPath(), 'books.db');
     return openDatabase(

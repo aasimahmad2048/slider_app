@@ -47,17 +47,17 @@ class _MyHomePageState extends State<MyHomePage> {
               message: 'My Account',
               child: ElevatedButton(
                 onPressed: () {},
-                child: Icon(Icons.account_box, size: 100),
+                child: Icon(Icons.account_box, size: 50),
               ),
             ),
           ),
           Container(
             margin: EdgeInsets.all(10),
             child: Tooltip(
-              message: 'My Account',
+              message: 'My profile',
               child: ElevatedButton(
                 onPressed: () {},
-                child: Icon(Icons.account_box, size: 100),
+                child: Icon(Icons.account_box, size: 50),
               ),
             ),
           ),

@@ -9,7 +9,6 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    
     return MaterialApp(home: ProgressBarClass());
   }
 }
@@ -44,6 +43,7 @@ class ProgressBarClassState extends State<ProgressBarClass> {
           _loading = false;
           _progressValue = 0;
           t.cancel();
+          
 
           return;
         }
@@ -66,9 +66,8 @@ class ProgressBarClassState extends State<ProgressBarClass> {
                       children: <Widget>[
                         LinearProgressIndicator(
                           backgroundColor: Colors.cyan,
-                          valueColor: AlwaysStoppedAnimation<Color>(
-                            Colors.black,
-                          ),
+
+                          valueColor: AlwaysStoppedAnimation<Color>(Colors.red),
                           value: _progressValue,
                         ),
                         Text(("${(_progressValue * 100).round()}%")),

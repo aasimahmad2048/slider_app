@@ -30,31 +30,30 @@ class _MyHomePageState extends State<MyHomePage> {
       body: Padding(
         padding: EdgeInsets.all(15),
         child: Center(
-          child: Row(
-            mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+          child: Column(
+            mainAxisAlignment: MainAxisAlignment.center,
             mainAxisSize: MainAxisSize.max,
             children: [
               Icon(Icons.volume_up, size: 40),
-              Expanded(
-                child: Slider(
-                  value: _value.toDouble(),
-                  min: 1,
-                  max: 20,
-                  onChanged: (double value) {
-                    setState(() {
-                      _value = value.round();
-                    });
-                  },
-                  semanticFormatterCallback: (double newValue) {
-                    return "${newValue.round()} dollars";
-                  },
-
-                  divisions: 10,
-                  activeColor: Colors.green,
-                  inactiveColor: Colors.deepOrange,
-                  label: "set volume $_value",
-                ),
+              Slider(
+                value: _value.toDouble(),
+                min: 1,
+                max: 20,
+                onChanged: ( value) {
+                  setState(() {
+                    _value = value.round();
+                  });
+                },
+                semanticFormatterCallback: (double newValue) {
+                  return "${newValue.round()} dollars";
+                },
+              
+                divisions: 10,
+                activeColor: Colors.green,
+                inactiveColor: Colors.deepOrange,
+                label: "set volume $_value",
               ),
+              Text('$_value' ),
             ],
           ),
         ),

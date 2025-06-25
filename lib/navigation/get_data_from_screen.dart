@@ -1,36 +1,49 @@
 import 'package:flutter/material.dart';
 
 void main() {
-  runApp(const MaterialApp(title: 'Returning Data', home: HomeScreen()));
+  runApp(
+    MaterialApp(
+      title: 'Returning Data',
+      home: HomeScreen(student: Student(age: 25, name: 'Aasim')),
+    ),
+  );
 }
 
 class HomeScreen extends StatelessWidget {
-  const HomeScreen({super.key});
+  final dynamic student;
+
+  const HomeScreen({super.key, required this.student});
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(title: const Text('Returning Data Demo')),
-      body: const Center(child: SelectionButton()),
+      body: Center(child: SelectionButton(student: student)),
     );
   }
 }
 
 class SelectionButton extends StatefulWidget {
-  const SelectionButton({super.key});
+  final Student student;
+
+  const SelectionButton({super.key, required this.student});
 
   @override
-  State<SelectionButton> createState() => _SelectionButtonState();
+  State<SelectionButton> createState() => _SelectionButtonState(student);
 }
 
 class _SelectionButtonState extends State<SelectionButton> {
+  Student student;
+
+  _SelectionButtonState(this.student);
+
   @override
   Widget build(BuildContext context) {
     return ElevatedButton(
       onPressed: () {
         _navigateAndDisplaySelection(context);
       },
-      child: const Text('Pick an option, any option!'),
+      child: Text('${student.name}  Select an option, any option!'),
     );
   }
 
@@ -41,7 +54,9 @@ class _SelectionButtonState extends State<SelectionButton> {
     // Navigator.pop on the Selection Screen.
     final result = await Navigator.push(
       context,
-      MaterialPageRoute(builder: (context) => const SelectionScreen()),
+      MaterialPageRoute(
+        builder: (context) => SelectionScreen(student: student),
+      ),
     );
 
     // When a BuildContext is used from a StatefulWidget, the mounted property
@@ -57,7 +72,8 @@ class _SelectionButtonState extends State<SelectionButton> {
 }
 
 class SelectionScreen extends StatelessWidget {
-  const SelectionScreen({super.key});
+  const SelectionScreen({super.key, required this.student});
+  final Student student;
 
   @override
   Widget build(BuildContext context) {
@@ -72,9 +88,9 @@ class SelectionScreen extends StatelessWidget {
               child: ElevatedButton(
                 onPressed: () {
                   // Close the screen and return "Yep!" as the result.
-                  Navigator.pop(context, 'Yep!');
+                  Navigator.pop(context, student.age);
                 },
-                child: const Text('Yep!'),
+                child: const Text('AGE'),
               ),
             ),
             Padding(
@@ -92,4 +108,11 @@ class SelectionScreen extends StatelessWidget {
       ),
     );
   }
+}
+
+class Student {
+  late int age;
+  late String name;
+
+  Student({required this.age, required this.name});
 }

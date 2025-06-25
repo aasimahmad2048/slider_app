@@ -8,7 +8,7 @@ class Student {
 }
 
 void main() {
-  Student stu = new Student();
+  Student stu = Student();
   var msg = stu('Sharma', 18); // Class instance called like a function.
  
   print(msg);

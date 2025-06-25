@@ -37,9 +37,10 @@ class _MyAppState extends State<MyApp> {
           title: const Text('PopupMenu Button Example'),
           actions: <Widget>[
             PopupMenuButton<Choice>(
+              tooltip: "Select a service",
               onSelected: _select,
               itemBuilder: (BuildContext context) {
-                return choices.skip(0).map((Choice choice) {
+                return choices.map((Choice choice) {
                   return PopupMenuItem<Choice>(
                     value: choice,
                     child: Text(choice.name),
@@ -51,10 +52,14 @@ class _MyAppState extends State<MyApp> {
         ),
 
 
-
-        body: Padding(
-          padding: const EdgeInsets.all(10.0),
-          child: ChoiceCard(choice: _selectedOption),
+        body: Center(
+          child: SizedBox(height: 200,
+          width: 200,
+            child: Padding(
+              padding: const EdgeInsets.all(10.0),
+              child: ChoiceCard(choice: _selectedOption),
+            ),
+          ),
         ),
       ),
     );
@@ -67,11 +72,11 @@ class Choice {
   final IconData icon;
 }
 
-const List<Choice> choices = const <Choice>[
-  const Choice(name: 'Wi-Fi', icon: Icons.wifi),
-  const Choice(name: 'Bluetooth', icon: Icons.bluetooth),
-  const Choice(name: 'Battery', icon: Icons.battery_alert),
-  const Choice(name: 'Storage', icon: Icons.storage),
+const List<Choice> choices = <Choice>[
+  Choice(name: 'Wi-Fi', icon: Icons.wifi),
+  Choice(name: 'Bluetooth', icon: Icons.bluetooth),
+  Choice(name: 'Battery', icon: Icons.battery_alert),
+  Choice(name: 'Storage', icon: Icons.storage),
 ];
 
 
@@ -91,7 +96,7 @@ class ChoiceCard extends StatelessWidget {
           crossAxisAlignment: CrossAxisAlignment.center,
           children: <Widget>[
             Icon(choice.icon, size: 115.0, color: Colors.blue),
-            Text(choice.name),
+            Text(choice.name,style: TextStyle(fontSize: 40),),
           ],
         ),
       ),

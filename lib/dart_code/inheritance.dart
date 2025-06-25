@@ -1,6 +1,6 @@
 class bird {
   bird(String s) {
-    print("bird class  consuctor ${s}");
+    print("bird class  consuctor $s");
   }
 
   void fly() {
@@ -9,6 +9,7 @@ class bird {
 }
 
 class parrot extends bird {
+  @override
   void fly() {
     print("parrot can fly");
   }
@@ -28,7 +29,7 @@ class parrot extends bird {
 }
 
 void main() {
-  parrot p = new parrot();
+  parrot p = parrot();
   p.fly();
   p.speak();
 }

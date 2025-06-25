@@ -11,6 +11,7 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
+      
       title: "Named Route App",
       initialRoute: "/",
       routes: {
@@ -61,7 +62,7 @@ class _MyHomePageState extends State<MyHomepage> {
                       shape: RoundedRectangleBorder(
                         borderRadius: BorderRadius.circular(15),
                       ),
-                      color: Colors.blue,
+                      color: const Color.fromARGB(129, 37, 141, 10),
                       elevation: 10,
                       child: Column(
                         children: <Widget>[

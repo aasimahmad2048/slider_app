@@ -24,8 +24,8 @@ class MyHomePage extends StatefulWidget {
 class _MyHomePageState extends State<MyHomePage> {
   RangeValues _currentRangeValues = const RangeValues(10, 50);
 
-  late var _start=0;
-  late var _end=0;
+  late int _start=0;
+  late int _end=0;
 
   @override
   void initState() {

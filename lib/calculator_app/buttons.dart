@@ -9,7 +9,7 @@ class MyButton extends StatelessWidget {
   final buttontapped;
 
   //Constructor
-  MyButton({
+  const MyButton({super.key, 
     this.color,
     this.textColor,
     required this.buttonText,

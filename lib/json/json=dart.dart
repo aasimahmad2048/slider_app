@@ -16,9 +16,6 @@ void main() {
 ''';
   final List<dynamic> users = jsonDecode((jsonArray));
   print(users);
+  print(users[0]);
   print(users[0]['name']);
-
-
-
-  
 }
